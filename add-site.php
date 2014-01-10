@@ -296,7 +296,7 @@ EOT;
 		<label for="contact_email">E-mail: </label><input type="text" name="contact_email" id="contact_email" value="{$_POST["contact_email"]}"/><br /><br />
 		<label for="url">Website URL: </label><input type="text" name="url" id="url" value="{$_POST["url"]}" /><br /><br />
 		<label for="site_name">Website Title: </label><input type="text" name="site_name" id="site_name" value="{$_POST["site_name"]}" /><br /><br />
-		<label for="freemium_url">Location of Reciprocal Link (Freemium submission only):</label><input type="text" name="freemium_url" id="freemium_url" value="{$_POST["freemium_url"]}" /><br /><br />
+		<label for="freemium_url">Location of Reciprocal Link<br />(Freemium submission only):</label><input type="text" name="freemium_url" id="freemium_url" value="{$_POST["freemium_url"]}" /><br /><br />
 		<label for="description">Description: </label><textarea name="description" id="description" value="{$_POST["description"]}"></textarea><br /><br />
 		<label for="image">Screenshot: </label><img src="{$_POST["image"]}" /><input name="image" type="file"><input type="hidden" id="picture" name="picture" value="{$_POST["image"]}" /> <br /><br /><br /><br />
 		<input type="hidden" name="action" value="new_site" />
@@ -369,7 +369,7 @@ Please complete the following form and then click submit.
 <label for="contact_email">E-mail: </label><input type="text" name="contact_email" id="contact_email" /><br /><br />
 <label for="url">Website URL: </label><input type="text" name="url" id="url" value="http://"/><br /><br />
 <label for="site_name">Website Title: </label><input type="text" name="site_name" id="site_name" /><br /><br />
-<label for="freemium_url">Location of reciprocal URL: (Freemium submission only) </label><input type="text" name="freemium_url" id="freemium_url" value="http://"/><br /><br />
+<label for="freemium_url">Location of reciprocal URL<br />(Freemium submission only): </label><input type="text" name="freemium_url" id="freemium_url" value="http://"/><br /><br />
 <label for="description">Description: </label><textarea name="description" id="description"></textarea><br /><br />
 <label for="image">Screenshot: </label><input name="image" type="file"> <br /><br />
 <input type="hidden" name="action" value="new_site" />
@@ -413,11 +413,15 @@ function formCheck(formobj){
 				}
 				break;
 			case "text":
-			case "textarea":
-				if (obj.value == "" || obj.value == null){
+				if (obj.value == "" || obj.value == null || obj.value == "http://"){
 					alertMsg += " - " + fieldDescription[i] + "\n";
 				}
 				break;
+			case "textarea":
+			if (obj.value.length < 100){
+				alertMsg += fieldDescription[i] + " must contain at least 100 characters\n";
+			}
+			break;
 			default:
 			}
 			if (obj.type == undefined){
