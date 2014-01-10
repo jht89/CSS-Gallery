@@ -225,7 +225,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["action"]) &&  $_POST["
 	$html.=<<<EOT
 	Please check that the details you have entered are correct before submitting.<br />
 
-	<strong>Contact Name:</strong> {$contact_name} <br /><strong>Contact E-mail:</strong>{$contact_email}<br /> <strong>Website Title:</strong> {$site_name}<br /> <strong>URL:</strong> {$url}<br /><strong>Website Description:</strong> {$description}<br /> <strong>Listing Type:</strong> {$premium} <br />
+	<strong>Your Name:</strong> {$contact_name} <br /><strong>E-mail:</strong>{$contact_email}<br /><strong>Website URL:</strong> {$url}<br /> <strong>Website Title:</strong> {$site_name}<br /> <strong>Website Description:</strong> {$description}<br /> <strong>Listing Type:</strong> {$premium} <br />
 	<strong>Screenshot:</strong> <img src="http://www.technographics.co.uk/{$uploaded}"  /> {$error}
 
 	<form action="" method="POST" name="edit" id="edit">
@@ -295,11 +295,10 @@ EOT;
 		<label for="contact_name">Your Name:</label><input type="text" name="contact_name" id="contact_name" value="{$_POST["contact_name"]}" /><br /><br />
 		<label for="contact_email">E-mail: </label><input type="text" name="contact_email" id="contact_email" value="{$_POST["contact_email"]}"/><br /><br />
 		<label for="url">Website URL: </label><input type="text" name="url" id="url" value="{$_POST["url"]}" /><br /><br />
-<label for="site_name">Website Title: </label><input type="text" name="site_name" id="site_name" value="{$_POST["site_name"]}" /><br /><br />
-		
-		<label for="freemium_url">Location of Reciprocal Link (For Freemium Listings):</label><input type="text" name="freemium_url" id="freemium_url" value="{$_POST["freemium_url"]}" /><br /><br />
-		<label for="description">*Description: </label><textarea name="description" id="description" value="{$_POST["description"]}"></textarea><br /><br />
-		<label for="image">* Screenshot: </label><img src="{$_POST["image"]}" /><input name="image" type="file"><input type="hidden" id="picture" name="picture" value="{$_POST["image"]}" /> <br /><br /><br /><br />
+		<label for="site_name">Website Title: </label><input type="text" name="site_name" id="site_name" value="{$_POST["site_name"]}" /><br /><br />
+		<label for="freemium_url">Location of Reciprocal Link (Freemium submission only):</label><input type="text" name="freemium_url" id="freemium_url" value="{$_POST["freemium_url"]}" /><br /><br />
+		<label for="description">Description: </label><textarea name="description" id="description" value="{$_POST["description"]}"></textarea><br /><br />
+		<label for="image">Screenshot: </label><img src="{$_POST["image"]}" /><input name="image" type="file"><input type="hidden" id="picture" name="picture" value="{$_POST["image"]}" /> <br /><br /><br /><br />
 		<input type="hidden" name="action" value="new_site" />
 		<input name="submit" id="submit" type="submit" value="Submit" />
 	</form>
@@ -366,11 +365,11 @@ Please complete the following form and then click submit.
 <option value="freemium">Freemium</option>
 <option value="premium">Premium</option>
 </select><br /><br />
-<label for="contact_name">Contact Name:</label><input type="text" name="contact_name" id="contact_name" /><br /><br />
-<label for="contact_email">Contact E-mail: </label><input type="text" name="contact_email" id="contact_email" /><br /><br />
+<label for="contact_name">Your Name:</label><input type="text" name="contact_name" id="contact_name" /><br /><br />
+<label for="contact_email">E-mail: </label><input type="text" name="contact_email" id="contact_email" /><br /><br />
+<label for="url">Website URL: </label><input type="text" name="url" id="url" value="http://"/><br /><br />
 <label for="site_name">Website Title: </label><input type="text" name="site_name" id="site_name" /><br /><br />
-<label for="url">Site URL: </label><input type="text" name="url" id="url" /><br /><br />
-<label for="freemium_url">Location of reciprocal URL: (Freemium submission only) </label><input type="text" name="freemium_url" id="freemium_url" /><br /><br />
+<label for="freemium_url">Location of reciprocal URL: (Freemium submission only) </label><input type="text" name="freemium_url" id="freemium_url" value="http://"/><br /><br />
 <label for="description">Description: </label><textarea name="description" id="description"></textarea><br /><br />
 <label for="image">Screenshot: </label><input name="image" type="file"> <br /><br />
 <input type="hidden" name="action" value="new_site" />
